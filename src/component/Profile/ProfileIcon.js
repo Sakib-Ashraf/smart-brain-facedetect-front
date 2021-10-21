@@ -49,20 +49,22 @@ class ProfileIcon extends Component {
 						aria-expanded={this.state.dropdownOpen}
 					>
 						<img
-							src='http://tachyons.io/img/logo.jpg'
+							src='https://png.pngtree.com/png-vector/20191110/ourlarge/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg'
 							className='br-100 ba h3 w3 dib'
 							alt='avatar'
 						/>
 					</DropdownToggle>
-                    <DropdownMenu
-                        right
+					<DropdownMenu
+						right
 						className='b--transparent shadow-5'
 						style={{
 							marginTop: '20px',
 							backgroundColor: 'rgba(255, 255, 255, 0.5)',
 						}}
 					>
-						<DropdownItem onClick={() => this.props.toggleModel()}>View Profile</DropdownItem>
+						<DropdownItem onClick={() => this.props.toggleModel()}>
+							View Profile
+						</DropdownItem>
 						<DropdownItem onClick={() => this.signOut()}>
 							Sign Out
 						</DropdownItem>
