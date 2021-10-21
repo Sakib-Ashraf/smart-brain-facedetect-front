@@ -38,12 +38,30 @@ class Register extends Component {
 			}),
 		})
 			.then((response) => response.json())
-			.then((user) => {
-				if (user.id) {
-					this.props.loadUser(user);
-					this.props.onRouteChange('home');
+			.then((data) => {
+				if (data.userId && data.success === 'true') {
+					this.props.saveSessionToken(data.token);
+					fetch(
+						`https://immense-tor-84997.herokuapp.com/profile/${data.userId}`,
+						{
+							method: 'get',
+							headers: {
+								'Content-Type': 'application/json',
+								authorization: data.token,
+							},
+						}
+					)
+						.then((response) => response.json())
+						.then((user) => {
+							if (user && user.email) {
+								this.props.loadUser(user);
+								this.props.onRouteChange('home');
+							}
+						})
+						.catch(console.log);
 				}
-			});
+			})
+			.catch(console.log);
     };
 
 
