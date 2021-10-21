@@ -160,7 +160,7 @@ class App extends Component {
 			.then((data) => {
 				if (data && data.id) {
 					fetch(
-						`https://immense-tor-84997.herokuapp.com/${data.id}`,
+						`https://immense-tor-84997.herokuapp.com/profile/${data.id}`,
 						{
 							method: 'get',
 							headers: {
